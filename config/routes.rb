@@ -1,10 +1,15 @@
 DeviceTest::Application.routes.draw do
+  resources :tags
+  resources :posts do
+    resources :comments
+  end
+
   get "page/index"
 
   devise_for :users
 
-  root :to => "page#index"
-
+  #root :to => "page#index"
+  root :to => "posts#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
